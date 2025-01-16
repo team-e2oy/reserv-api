@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: reserv-api
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/RESERVDB?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+  sql:
+    init:
+      mode: always # data.sql init
+  jpa:
+    show-sql: true # jpa 수행 쿼리 노출 옵션
+    hibernate:
+      ddl-auto: create # 서버 구동 시 entity 객체 자동 생성 여부  
+    properties:
+      hibernate:
+        format_sql: true # jpa 쿼리 로그 이쁘게 해줌
+    defer-datasource-initialization: true # data.sql 사용하기 위한 지연로딩 설정
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace # 어떤 값이 jpa 에 맵핑되는지
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha # tag 정렬 알파벳순
+    operations-sorter: alpha # api 정렬 알파벳순
+  api-docs:
+    path: /api-docs
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
