@@ -4,20 +4,20 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 
+@Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Entity
-@Table(name = "t_user")
-public class User {
+@AllArgsConstructor
+@Builder
+@Table(name = "t_member")
+public class Member {
     @Id
-    private String userId;
+    private String memberId;
     @Column(unique = true, nullable = false)
-    private String pw;
+    private String password;
     @Column(unique = true, nullable = false)
     private String name;
 

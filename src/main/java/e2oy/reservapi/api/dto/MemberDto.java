@@ -7,10 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class UserDto {
-    
-    private String userId;
-    private String pw;
+public class MemberDto {
+    private String memberId;
+    private String password;
     private String name;
-
 }
